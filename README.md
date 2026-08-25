@@ -135,7 +135,7 @@ npx skills add locoda/reading-companion-skill
 
 可验证用例见 [`references/test-cases.md`](references/test-cases.md)：12 个 L1 用例（情节三类知识 ×4、剧透线 ×8）+ 8 个建档与边界用例 + 7 个端到端用例，每条带「期望行为」和「失败信号」。
 
-**状态：尚未跑通。** 用例已就位，接入 eval 框架后结果会公布在这里。
+**状态：核心剧透线用例 7/7 已跑通。** 用子 agent 实测（带 SKILL.md 逐条对照「期望行为 / 失败信号」）：TC-1 无原文情节、TC-2 追问不让步、TC-4 书目事实可答、TC-5 锚点不泄露、TC-6 元剧透禁止、TC-7 strict 档不答结构、TC-8 open 档不设限，全部通过。其余（事件顺序、prep 档位、8 个建档与边界用例）待跑。
 
 ---
 
