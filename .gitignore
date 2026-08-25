@@ -5,5 +5,8 @@
 .workbuddy/
 .claude/
 
+# 读者的书档：progress/sealed 是私人阅读状态，sealed.md 更是压着没说的内容，绝不入库
+reading/
+
 # macOS
 .DS_Store
