@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>对坐</title>
+<meta name="description" content="陪一个读小说的人，把一本书读完。开读前，讲「怎么读」；开读后，只讲「读到的」——读到哪，聊到哪，一个字都不多说。">
+<meta name="author" content="locoda">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="对坐">
+<meta property="og:title" content="对坐 · 读到哪，聊到哪，一个字都不多说">
+<meta property="og:description" content="陪一个读小说的人，把一本书读完。开读前，讲「怎么读」；开读后，只讲「读到的」——读到哪，聊到哪，一个字都不多说。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="对坐 · 读到哪，聊到哪，一个字都不多说">
+<meta name="twitter:description" content="陪一个读小说的人，把一本书读完。开读前，讲「怎么读」；开读后，只讲「读到的」——读到哪，聊到哪，一个字都不多说。">
+
+<meta name="theme-color" content="#EAE7E0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141B2B" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='3' fill='%23B23A26'/%3E%3Cpath d='M9 7h14v18l-7-4-7 4z' fill='%23F4EFE8'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fontsapi.zeoseven.com" crossorigin>
+<link rel="stylesheet" href="https://fontsapi.zeoseven.com/22/main/result.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap">
+
+<style>
+:root{
+  --ground:#F2F0EA;
+  --paper:#E7E4DC;
+  --ink:#1E2740;
+  --ink-soft:#333C55;
+  --muted:#5A6173;
+  --accent:#B23A26;
+  --accent-soft:rgba(178,58,38,.10);
+  --rule:rgba(30,39,64,.13);
+  --hair:rgba(30,39,64,.08);
+
+  --song:"LXGW Neo ZhiSong","Source Han Serif SC","Noto Serif CJK SC","Songti SC",Georgia,serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#141B2B;
+    --paper:#1B2334;
+    --ink:#E4E1D9;
+    --ink-soft:#BFC3D0;
+    --muted:#8A93A6;
+    --accent:#D6553C;
+    --accent-soft:rgba(214,85,60,.14);
+    --rule:rgba(228,225,217,.15);
+    --hair:rgba(228,225,217,.09);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#141B2B;
+  --paper:#1B2334;
+  --ink:#E4E1D9;
+  --ink-soft:#BFC3D0;
+  --muted:#8A93A6;
+  --accent:#D6553C;
+  --accent-soft:rgba(214,85,60,.14);
+  --rule:rgba(228,225,217,.15);
+  --hair:rgba(228,225,217,.09);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--song);
+  font-size:19px;
+  line-height:1.85;
+  font-weight:400;
+  text-rendering:optimizeLegibility;
+}
+.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82em;letter-spacing:-.01em}
+h1,h2{margin:0;font-family:var(--song);font-weight:400;line-height:1.35;text-wrap:balance;letter-spacing:.02em}
+p{margin:0}
+a{color:inherit}
+
+.page{max-width:57rem;margin:0 auto;padding:0 1.75rem}
+
+/* ── 眉批式版心 ───────────────────────── */
+.leaf{display:grid;grid-template-columns:6.5rem 1fr;gap:2.25rem;padding:4.25rem 0}
+.leaf+.leaf{border-top:1px solid var(--hair)}
+.marg{
+  font-family:var(--song);font-weight:400;font-size:.95rem;color:var(--accent);letter-spacing:.28em;
+  line-height:1.6;padding-top:.55rem;
+}
+.col{min-width:0;max-width:34em}
+@media (max-width:680px){
+  .leaf{grid-template-columns:1fr;gap:.9rem;padding:3.25rem 0}
+  .marg{letter-spacing:.34em;padding-top:0}
+}
+
+/* ── 开卷 ─────────────────────────────── */
+.opening{padding:5.5rem 0 3.25rem;position:relative}
+.opening::after{
+  content:'';position:absolute;right:-6rem;top:1rem;width:19rem;height:19rem;
+  border:1px solid var(--accent);border-radius:50%;opacity:.07;pointer-events:none;
+}
+.seal{
+  display:inline-grid;place-items:center;width:2.35rem;height:2.35rem;
+  background:var(--accent);color:#F4EFE8;border-radius:2px;
+  font-family:var(--song);font-size:.72rem;font-weight:400;
+  line-height:1.05;text-align:center;letter-spacing:0;margin-bottom:2rem;
+}
+h1{font-size:clamp(2.3rem,6vw,3.4rem);line-height:1.45;margin-bottom:1.5rem;position:relative;z-index:1}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{max-width:34em;color:var(--ink);font-size:1.08rem;line-height:1.75;text-wrap:pretty}
+.lede+.lede{margin-top:1.55rem}
+.byline{
+  margin-top:2.25rem;color:var(--muted);font-size:.95rem;
+  display:flex;gap:1.5rem;flex-wrap:wrap;align-items:baseline;
+}
+.byline a{text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:1px}
+.byline a:hover{color:var(--accent);border-color:var(--accent)}
+
+/* ── 那条线 ───────────────────────────── */
+.q strong{font-family:var(--song);font-weight:400}
+.q{font-size:1.22rem;margin-bottom:2.6rem;color:var(--ink)}
+.q small{display:block;color:var(--muted);font-size:.92rem;margin-top:.3rem;letter-spacing:.02em}
+
+.track{position:relative;margin:0 0 2.75rem;padding:3.1rem .25rem 3.4rem}
+.rail{position:absolute;left:.25rem;right:.25rem;top:50%;height:1px;background:var(--rule)}
+.rail-read{position:absolute;left:.25rem;top:50%;height:1px;background:var(--accent);opacity:.45}
+.tick{position:absolute;top:50%;transform:translate(-50%,-50%);width:1px;height:1.5rem;background:var(--ink);opacity:.28}
+.tick-lab{
+  position:absolute;top:calc(50% - 2.5rem);transform:translateX(-50%);
+  white-space:nowrap;font-size:.88rem;color:var(--muted);letter-spacing:.02em;
+}
+.you-lab{
+  position:absolute;top:calc(50% + 1.5rem);transform:translateX(-50%);
+  white-space:nowrap;font-size:.92rem;color:var(--accent);letter-spacing:.02em;
+  transition:left .1s linear;
+}
+input[type=range]{
+  -webkit-appearance:none;appearance:none;position:relative;z-index:2;
+  display:block;width:100%;height:1.9rem;margin:0;background:transparent;cursor:ew-resize;
+}
+input[type=range]::-webkit-slider-runnable-track{height:1.9rem;background:transparent}
+input[type=range]::-moz-range-track{height:1.9rem;background:transparent}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:.72rem;height:1.9rem;border:0;border-radius:1px;
+  background:var(--accent);
+}
+input[type=range]::-moz-range-thumb{
+  width:.72rem;height:1.9rem;border:0;border-radius:1px;background:var(--accent);
+}
+input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:8px;border-radius:3px}
+
+.facing{display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media (max-width:680px){.facing{grid-template-columns:1fr}}
+.side{padding:1.6rem 1.7rem}
+.side:first-child{border-right:1px solid var(--hair)}
+@media (max-width:680px){
+  .side:first-child{border-right:0;border-bottom:1px solid var(--hair)}
+}
+.who{font-size:.92rem;color:var(--muted);letter-spacing:.16em;margin-bottom:.9rem}
+.side.mine{background:var(--paper)}
+.side.mine .who{color:var(--accent)}
+.said{font-size:1.02rem;line-height:1.9}
+.aside{margin-top:1rem;color:var(--muted);font-size:.9rem;line-height:1.75}
+.verdict{margin-top:2rem;font-size:1.08rem;color:var(--ink)}
+
+/* ── 正文块 ───────────────────────────── */
+h2{font-size:1.62rem;margin-bottom:1.15rem;letter-spacing:.04em}
+.body-p{color:var(--ink);font-size:1.04rem}
+.body-p+.body-p{margin-top:1.05rem}
+.body-p b{color:var(--accent);font-weight:400}
+
+.pair{margin-top:1.9rem;display:grid;gap:1.6rem}
+.pair h3{margin:0 0 .5rem;font-size:1.18rem;font-weight:400;letter-spacing:.05em}
+.pair h3 span{color:var(--accent)}
+.pair p{color:var(--ink);font-size:1.02rem}
+
+blockquote{
+  margin:0;padding:1.7rem 0 1.7rem 1.6rem;border-left:1px solid var(--accent);
+}
+blockquote dl{margin:0;display:grid;gap:1.35rem}
+blockquote dt{color:var(--accent);font-weight:400;font-size:1.02rem;margin-bottom:.3rem;letter-spacing:.14em}
+blockquote dd{margin:0;color:var(--ink);font-size:1.01rem}
+
+.pull{
+  margin-top:1.9rem;padding:1.5rem 1.7rem;background:var(--paper);
+  border-radius:2px;color:var(--ink);font-size:1.02rem;
+}
+.pull b{color:var(--accent);font-weight:400}
+
+.cmd{
+  display:flex;align-items:center;gap:1.25rem;width:100%;margin-top:.4rem;
+  padding:1.05rem 1.25rem;background:var(--paper);color:var(--ink);
+  border:1px solid var(--hair);border-radius:2px;
+  font:inherit;text-align:left;cursor:pointer;
+  transition:border-color .2s ease,background .2s ease;
+}
+.cmd:hover{border-color:var(--rule)}
+.cmd:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.cmd-text{flex:1;min-width:0;overflow-x:auto;white-space:nowrap;font-size:.98rem}
+.cmd-shell .cmd-text{
+  font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.82em;letter-spacing:-.01em;
+}
+.cmd-shell .cmd-text::before{content:"$ ";color:var(--muted)}
+.cmd+.after-cmd{margin-top:1.25rem}
+
+/* 小字比正文更容易糊，单独加一档字重 */
+.aside,.fine,.colophon dl,.cmd-hint,.tick-lab,.you-lab,.q small,.who,.hosts,.after-cmd{
+  font-weight:400;
+}
+@media (max-width:560px){
+  .cmd{flex-direction:column;align-items:stretch;gap:.65rem}
+  .cmd-hint{text-align:right}
+}
+.cmd-hint{
+  flex:none;font-size:.82rem;color:var(--muted);letter-spacing:.08em;
+  transition:color .2s ease;
+}
+.cmd.done .cmd-hint{color:var(--accent)}
+.after-cmd{margin-top:1rem;color:var(--muted);font-size:.96rem}
+
+/* ── 版权页 ───────────────────────────── */
+.colophon{
+  border-top:1px solid var(--rule);margin-top:1rem;
+  padding:3.25rem 0 5rem;text-align:center;
+}
+.colophon dl{margin:0 auto;max-width:26rem;display:grid;gap:.5rem;font-size:.95rem;color:var(--muted)}
+.colophon dl div{display:flex;justify-content:center;gap:1rem}
+.colophon dt{letter-spacing:.2em;flex:none;width:4.5rem;text-align:right}
+.colophon dd{margin:0;flex:none;width:11rem;text-align:left;color:var(--ink)}
+.colophon a{text-decoration:none;border-bottom:1px solid var(--rule)}
+.colophon a:hover{color:var(--accent);border-color:var(--accent)}
+.fine{
+  margin:2.4rem auto 0;max-width:44em;font-size:.86rem;line-height:1.9;color:var(--muted);
+  opacity:.85;text-wrap:pretty;
+}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="opening">
+    <div class="seal">对坐</div>
+    <h1>读到哪，聊到哪，<br><em>一个字都不多说。</em></h1>
+    <p class="lede">读书最怕两件事。<br>
+      一件，是有人替你翻到还没读的页，把结局说漏了嘴。<br>
+      一件，是有人装作读过，随口编个情节给你。</p>
+    <p class="lede">这两件，AI 都爱干——尤其没人管着它的时候。</p>
+    <p class="byline">
+      <span>一个陪读的 Agent Skill</span>
+      <a href="#use">安装</a>
+      <a href="https://github.com/locoda/reading-companion-skill">GitHub</a>
+    </p>
+  </div>
+
+  <div class="leaf">
+    <div class="marg">问</div>
+    <div class="col">
+      <p class="q">「奥德赛在喀耳刻岛上待了多久？」
+        <small>拖动下面这条线，改变你读到的位置。</small></p>
+
+      <div class="track">
+        <div class="rail"></div>
+        <div class="rail-read" id="railRead"></div>
+        <div class="tick" style="left:42%"></div>
+        <div class="tick-lab" style="left:42%">喀耳刻在这一带</div>
+        <div class="you-lab" id="youLab">刚开头</div>
+        <input type="range" id="slider" min="0" max="100" value="12" aria-label="你读到哪里">
+      </div>
+
+      <div class="facing">
+        <div class="side">
+          <p class="who">直接问 AI</p>
+          <p class="said">「他在喀耳刻那里待了整整一年。」</p>
+          <p class="aside">又快又完整。它没问过你读到哪——这一栏不会随线移动。</p>
+        </div>
+        <div class="side mine">
+          <p class="who">对坐</p>
+          <p class="said" id="answer"></p>
+          <p class="aside" id="answerNote"></p>
+        </div>
+      </div>
+
+      <p class="verdict">一个张口就答，一个先问你会不会被剧透。</p>
+    </div>
+  </div>
+
+  <div class="leaf">
+    <div class="marg">界</div>
+    <div class="col">
+      <h2>它把「怎么读」和「发生了什么」分开</h2>
+      <p class="body-p">这个区分是整件事的地基。裸模型给得出前一半，但会顺手把后一半一起给了。</p>
+      <div class="pair">
+        <div>
+          <h3>读法，<span>不受进度管</span></h3>
+          <p>开读前把「怎么读」讲全——几条线怎么认、要提前认识的专名、书名典故、最容易掉线的地方。这些不剧透，却决定你能读进多少。</p>
+        </div>
+        <div>
+          <h3>情节，<span>受进度管</span></h3>
+          <p>你读到哪，聊到哪。有原文，逐字核；没原文，不编，只给「去哪核、核什么」。追着问「你就大概说说」也不让步——编出来的答案，你会当真的。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="leaf">
+    <div class="marg">导</div>
+    <div class="col">
+      <h2>开读前，它先给你一份导读</h2>
+      <p class="body-p">《奥德赛》为例。通篇没有一句剧情，但读起来会不一样。</p>
+      <blockquote>
+        <dl>
+          <div>
+            <dt>几条线</dt>
+            <dd>前四卷是儿子线——Telemachus 在 Ithaca 被求婚者骚扰，出门打听父亲下落；第五卷起是父亲线——Odysseus 从 Calypso 处脱身、漂流到 Phaeacia；第十三卷起两线合流回 Ithaca。认线看一卷开头的人名和场景。</dd>
+          </div>
+          <div>
+            <dt>专名</dt>
+            <dd>这译本用拉丁名，和常见中文译本的希腊名对不上——Ulysses＝奥德修斯、Jove＝宙斯、Pallas / Minerva＝雅典娜、Mercury＝赫尔墨斯。</dd>
+          </div>
+          <div>
+            <dt>最容易掉线的地方</dt>
+            <dd>第九到十二卷。Odysseus 在 Phaeacia 宴会上自述十年漂泊，时间线突然跳回过去，是「故事里的故事」，最容易跟丢。</dd>
+          </div>
+        </dl>
+      </blockquote>
+    </div>
+  </div>
+
+  <div class="leaf">
+    <div class="marg">记</div>
+    <div class="col">
+      <h2>一本书要读三周，你不该自我介绍二十遍</h2>
+      <p class="body-p">书第一次进对话时，它先把这本书认清楚：哪个版本、哪个译本、你是在读还是在听。这些不是细节——删节本少掉的章会让进度对不上，不同译本人名译法不同，认人就会认错。</p>
+      <p class="body-p">认完摆出来给你核，你点头它才记下。之后它记得住你读到哪、在读哪个译本、之前在哪儿卡过。</p>
+      <p class="pull">每次重开，它先看一眼记录，再问一句「上次你在第三章海滩，之后又读了吗？」——<b>记下的是「上次说话时你在哪」，不是「你现在在哪」。</b>你会在它不在场的时候继续读，这中间隔着一条剧透线。</p>
+    </div>
+  </div>
+
+  <div class="leaf" id="use">
+    <div class="marg">用</div>
+    <div class="col">
+      <h2>装上就能用</h2>
+      <p class="body-p">对你正在用的 agent 说一句话：</p>
+      <button class="cmd" type="button">
+        <span class="cmd-text">请帮我安装这个 skill：https://github.com/locoda/reading-companion-skill</span>
+        <span class="cmd-hint">点一下复制</span>
+      </button>
+      <p class="after-cmd">Claude Code、Cursor、Codex、WorkBuddy 都认。也可以自己跑命令：</p>
+      <button class="cmd cmd-shell" type="button">
+        <span class="cmd-text">npx skills add locoda/reading-companion-skill</span>
+        <span class="cmd-hint">点一下复制</span>
+      </button>
+      <p class="after-cmd">装完对它说「我想读《尤利西斯》」，或者读到一半说「这一章完全读不懂」。</p>
+    </div>
+  </div>
+
+  <div class="colophon">
+    <dl>
+      <div><dt>书名</dt><dd>对坐</dd></div>
+      <div><dt>体例</dt><dd>Agent Skill</dd></div>
+      <div><dt>许可</dt><dd>MIT</dd></div>
+      <div><dt>作者</dt><dd><a href="https://1mether.me">locoda</a></dd></div>
+      <div><dt>存放</dt><dd><a href="https://github.com/locoda/reading-companion-skill">GitHub</a></dd></div>
+      <div><dt>字体</dt><dd><a href="https://github.com/lxgw/LxgwNeoZhiSong">霞鹜新致宋</a></dd></div>
+    </dl>
+    <p class="fine">页中对话按 skill 规格写成，非实时调用。<br>
+      字体霞鹜新致宋，依 IPA Font License 1.0 授权，由 <a href="https://fonts.zeoseven.com/items/22/">ZeoSeven Fonts</a> 分发。</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var EVENT = 42;
+  var slider   = document.getElementById('slider');
+  var railRead = document.getElementById('railRead');
+  var youLab   = document.getElementById('youLab');
+  var ans      = document.getElementById('answer');
+  var note     = document.getElementById('answerNote');
+
+  function where(v){
+    if (v <= 10) return '刚开头';
+    if (v <= 28) return '开头没多久';
+    if (v <= 46) return '快到一半';
+    if (v <= 62) return '过了一半';
+    if (v <= 84) return '后半程';
+    return '快读完了';
+  }
+
+  function render(v){
+    railRead.style.width = 'calc(' + v + '% - .5rem)';
+    youLab.style.left = v + '%';
+    youLab.textContent = where(v);
+
+    if (v < EVENT){
+      ans.textContent = '这个我得先卡一下。喀耳刻的情节在第十卷，你还没读到那儿——我现在说出来就是剧透。等你读到再来问，那时我能回原文给你核字句。';
+      note.textContent = '它不是不知道，是不说。你可以先问它「这一段该怎么读」，那部分不受进度限制。';
+    } else {
+      ans.textContent = '你已经读过那段了——整整一年。要更准的话，把第十卷里同伴劝他动身的那几句贴给我，我帮你核字句。';
+      note.textContent = '过了线，同一个问题就答得出来。手上没有原文时，它仍然只给「去哪核、核什么」，不凭记忆断言。';
+    }
+  }
+
+  slider.addEventListener('input', function(){ render(+slider.value); });
+  render(+slider.value);
+
+  // 复制（两个块共用）
+  var isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+
+  function selectAll(el){
+    try{
+      var r = document.createRange();
+      r.selectNodeContents(el);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(r);
+      return true;
+    }catch(e){ return false; }
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.cmd'), function(btn){
+    var textEl = btn.querySelector('.cmd-text');
+    var hintEl = btn.querySelector('.cmd-hint');
+    var timer;
+
+    function settle(msg, ok){
+      hintEl.textContent = msg;
+      btn.classList.toggle('done', !!ok);
+      clearTimeout(timer);
+      timer = setTimeout(function(){
+        hintEl.textContent = '点一下复制';
+        btn.classList.remove('done');
+      }, 2400);
+    }
+
+    function legacy(selected){
+      var ok = false;
+      try{ ok = document.execCommand('copy'); }catch(e){}
+      if (ok) settle('已复制', true);
+      else if (selected) settle(isMac ? '已选中，按 \u2318C' : '已选中，按 Ctrl+C', false);
+      else settle('请手动选中复制', false);
+    }
+
+    btn.addEventListener('click', function(){
+      var text = textEl.textContent.trim();
+      var selected = selectAll(textEl);
+      if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){
+          settle('已复制', true);
+        }).catch(function(){ legacy(selected); });
+      } else {
+        legacy(selected);
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
