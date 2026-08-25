@@ -1,0 +1,12 @@
+# 工作区：skill 开发过程文件（方针、决策记录、草稿），不随仓库发布
+.workspace/
+
+# 宿主 agent 的本地状态
+.workbuddy/
+.claude/settings.local.json
+
+# 测试夹具：public domain 原文体积大，用 tests/fetch-fixtures.sh 现拉
+tests/fixtures/
+
+# macOS
+.DS_Store
