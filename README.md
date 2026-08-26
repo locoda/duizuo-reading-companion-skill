@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) ![Agent Skills](https://img.shields.io/badge/Agent%20Skills-兼容-green)
 
-**陪一个人读小说、短篇集或非虚构。开读前，讲「怎么读」；开读后，只讲「读到的」。**
+**陪一个读小说的人，把一本书读完。开读前，讲「怎么读」；开读后，只讲「读到的」。**
 
 读书最怕两件事。一件，是有人替你翻到还没读的页，把结局说漏了嘴。一件，是有人装作读过，随口编个情节给你。这两件，AI 都爱干——尤其没人管着它的时候。
 
@@ -81,8 +81,6 @@ npx skills add locoda/reading-companion-skill
 > **专名**：这译本用拉丁名，和常见中文译本的希腊名对不上——Ulysses=奥德修斯、Jove=宙斯、Pallas/Minerva=雅典娜、Mercury=赫尔墨斯。
 >
 > **最可能掉线的地方**：叙述者和时间层切换时。遇到较长的第一人称回顾，先把它当作嵌套叙事，不急着接到当前时间线。
-
-短篇集按「当前篇目 + 篇内锚点 + 各篇状态」记进度，允许乱序；非虚构按「章/节 + 当前概念或论证 + 已覆盖范围」记进度，不硬套剧情模型。
 
 ---
 
