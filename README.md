@@ -53,7 +53,7 @@ npx skills add locoda/duizuo-reading-companion-skill
 对它说：
 
 ```
-"我想读《尤利西斯》"          → 先给无剧透开读抓手，再逐步补档
+"我想读《尤利西斯》"          → 先给无剧透开读提示，再逐步补档
 "接着聊《尤利西斯》"          → 读档 + 复核：「上次你在第三章海滩，之后又读了吗？」
 "第三章完全读不懂"            → 分诊 difficulty + context
 "跟丢了，这是谁"             → tracking 定位
