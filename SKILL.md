@@ -1,9 +1,9 @@
 ---
-name: reading-companion
+name: duizuo-reading-companion
 description: "Stateful, spoiler-safe reading companionship for novels, short-story collections, and nonfiction. Use when the reader is preparing to read, reading, stuck, reacting, interpreting, evaluating, or debriefing a book. It remembers edition, medium, status, and content-appropriate progress; verifies text claims; adapts each turn to plot, emotion, aesthetics, interpretation, evaluation, or simple companionship without storing the conversation mode."
 ---
 
-# Reading Companion（阅读陪伴）
+# 对坐（Duizuo Reading Companion）
 
 ## Purpose
 

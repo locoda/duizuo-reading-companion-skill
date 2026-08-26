@@ -1,4 +1,4 @@
-# Reading Companion 回归测试
+# 对坐（Duizuo Reading Companion）回归测试
 
 每个用例包含输入、前置、期望行为、失败信号。任一失败信号出现即不通过。
 

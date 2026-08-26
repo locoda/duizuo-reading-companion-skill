@@ -1,4 +1,4 @@
-# 对坐（reading-companion）
+# 对坐（Duizuo Reading Companion）
 
 > *「读到哪，聊到哪，一个字都不多说。」*
 
@@ -11,7 +11,7 @@
 对坐只认一条规矩：**你读到哪，它聊到哪，一个字不多。**
 
 ```
-npx skills add locoda/reading-companion-skill
+npx skills add locoda/duizuo-reading-companion-skill
 ```
 
 通用 Skill：Claude Code、Cursor、Codex、WorkBuddy，都能用。
@@ -45,7 +45,7 @@ npx skills add locoda/reading-companion-skill
 ## 开始使用
 
 ```
-npx skills add locoda/reading-companion-skill
+npx skills add locoda/duizuo-reading-companion-skill
 ```
 
 或手动复制整个目录到 agent 的 skills 目录（Claude Code 的 `~/.claude/skills/`、Codex 的 `~/.codex/skills/`）。
