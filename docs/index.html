@@ -247,16 +247,6 @@ blockquote dd{margin:0;color:var(--ink);font-size:1.01rem}
 .mode-card code{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.76em;color:var(--muted)}
 @media (max-width:560px){.mode-grid{grid-template-columns:1fr}.mode-card{min-height:0}}
 
-.evidence-row{margin-top:1rem;display:flex;align-items:center;gap:.9rem;flex-wrap:wrap}
-.evidence-btn{
-  border:1px solid var(--accent);border-radius:2px;background:transparent;color:var(--accent);
-  padding:.55rem .85rem;font:inherit;font-size:.88rem;cursor:pointer;
-}
-.evidence-btn:hover{background:var(--accent-soft)}
-.evidence-btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.evidence-note{font-size:.86rem;color:var(--muted)}
-.evidence-row[hidden]{display:none}
-
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -303,10 +293,6 @@ blockquote dd{margin:0;color:var(--ink);font-size:1.01rem}
           <p class="who">对坐</p>
           <p class="said" id="answer"></p>
           <p class="aside" id="answerNote"></p>
-          <div class="evidence-row" id="evidenceRow" hidden>
-            <button class="evidence-btn" id="evidenceBtn" type="button">补一小段原文</button>
-            <span class="evidence-note">模拟你贴回相关段落</span>
-          </div>
         </div>
       </div>
 
@@ -321,7 +307,7 @@ blockquote dd{margin:0;color:var(--ink);font-size:1.01rem}
       <p class="body-p">这个区分是整件事的地基。读法可以提前给；情节只能停在你确认读过的地方。</p>
       <div class="pair">
         <div>
-          <h3>读法，<span>先给你抓手</span></h3>
+          <h3>读法，<span>先告诉你怎么看</span></h3>
           <p>人物多，就讲怎么认；时间层乱，就讲怎么看切换。只说靠什么辨认，不顺手告诉你后来发生什么。</p>
         </div>
         <div>
@@ -425,10 +411,8 @@ blockquote dd{margin:0;color:var(--ink);font-size:1.01rem}
   var youLab = document.getElementById('youLab');
   var ans = document.getElementById('answer');
   var note = document.getElementById('answerNote');
-  var evidenceRow = document.getElementById('evidenceRow');
-  var evidenceBtn = document.getElementById('evidenceBtn');
   var widget = window.hatchWidget || null;
-  var defaults = {progress: 12, hasExcerpt: false};
+  var defaults = {progress: 12};
   var state = widget ? await widget.getState(defaults) : defaults;
 
   function where(v){
@@ -448,17 +432,11 @@ blockquote dd{margin:0;color:var(--ink);font-size:1.01rem}
     youLab.textContent = where(v);
 
     if (v < EVENT){
-      evidenceRow.hidden = true;
       ans.textContent = '这个我得先卡一下：这是具体情节。按你刚给的位置，我不能确认这段已经读过，也不会告诉你它在后面哪里。';
-      note.textContent = '它先确认你读过，也不会提前告诉你这段会在第几卷出现。';
-    } else if (!state.hasExcerpt){
-      evidenceRow.hidden = false;
-      ans.textContent = '这段已经在你读过的范围里。但我手上没有原文，不会凭模糊记忆报答案。贴一小段相关文字，我再帮你确认。';
-      note.textContent = '读过了，还要确认书里到底怎么写。';
+      note.textContent = '即使你之前已经给过整本书，它也只查你确认读过的部分。';
     } else {
-      evidenceRow.hidden = false;
-      ans.textContent = '按你贴回的段落，答案是整整一年。';
-      note.textContent = '读过的、能核实的，才给确定答案。';
+      ans.textContent = '他在喀耳刻岛上待了整整一年。';
+      note.textContent = '这里演示的是：你之前已经给过整本书。读到这里后，对坐会从原文里核实答案。';
     }
   }
 
@@ -469,11 +447,7 @@ blockquote dd{margin:0;color:var(--ink);font-size:1.01rem}
   }
 
   slider.addEventListener('input', function(){
-    var progress = +slider.value;
-    commit({progress: progress, hasExcerpt: progress >= EVENT && state.hasExcerpt});
-  });
-  evidenceBtn.addEventListener('click', function(){
-    commit({progress: state.progress, hasExcerpt: true});
+    commit({progress: +slider.value});
   });
   window.addEventListener('hatch-widget-state', function(event){
     if (event.detail && event.detail.state){ state = event.detail.state; render(); }
