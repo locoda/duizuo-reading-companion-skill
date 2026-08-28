@@ -175,8 +175,6 @@ npx skills add locoda/duizuo-reading-companion-skill
 
 MIT — 个人 + 商业用途均可，无需授权。
 
-站点字体：[霞鹜新致宋](https://github.com/lxgw/LxgwNeoZhiSong)，依 IPA Font License 1.0 授权，由 [ZeoSeven Fonts](https://fonts.zeoseven.com/items/22/) 分发。
-
 ---
 
 Made with [locoda](https://1mether.me)
