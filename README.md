@@ -6,15 +6,15 @@
 
 对坐是一个陪你把书读完的 skill，不替你读，不剧透，只在你卡住、想聊、想弄明白的时候，陪在旁边。
 
-对你的 agent 说：
-
-> 帮我安装 locoda/duizuo-reading-companion-skill
-
 兼容 Claude Code / Cursor / Codex 等支持 Agent Skills 的工具。
+
+```
+请帮我安装这个 skill：https://github.com/locoda/duizuo-reading-companion-skill
+```
 
 ---
 
-## 你会在什么时候想起对坐
+## 第三章完全看不懂，又不想被剧透的时候
 
 **比如这样：** 读《尤利西斯》第三章，海滩那段完全跟丢了。句子碎得像潮水，你怀疑是不是自己漏看了什么，想放弃，又怕一问就被剧透后十章。
 
