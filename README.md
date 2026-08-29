@@ -12,7 +12,6 @@
 请帮我安装这个 skill：https://github.com/locoda/duizuo-reading-companion-skill
 ```
 
----
 
 ## 第三章完全看不懂，又不想被剧透的时候
 
@@ -38,7 +37,6 @@
 
 力量回到你手里：不是被告知结局，而是被还回继续读的工具。
 
----
 
 ## 它是怎么陪你的
 
@@ -73,7 +71,6 @@
 
 卡住也有不同原因：看不懂、缺背景、跟丢人、读不动了、听不清、语言本身。对坐会先分清楚是哪种，再决定怎么陪。
 
----
 
 ## 还有哪些没做好
 
@@ -92,32 +89,20 @@
 
 以前的问题会放到 CHANGELOG / Issues 里，不会一直堆在这里。
 
----
+
+
+## 参考
+
+- 行为和边界：`SKILL.md`、`references/*.md`
+- 回归和边界用例：`references/test-cases.md`
+- 存储和归档：`references/storage.md`、`references/archiving.md`、`references/content-types.md`
+- 未使用需额外授权的字体或图片；示例为通用描述，不含受版权保护的原文
 
 ## License
 
-MIT — 详见 [LICENSE](LICENSE)。
-
-## 致谢
-
-- 行为和边界的依据：`SKILL.md` 和 `references/*.md`
-- 回归和边界用例：`references/test-cases.md`
-- 存储和归档：`references/storage.md` / `archiving.md` / `content-types.md`
-
-没有用需要额外授权的字体或图片，示例都是通用描述，不含受版权保护的原文。
+MIT — 详见 [LICENSE](LICENSE).
 
 ---
-
-## Made by
-
 Made by [1mether](https://1mether.me).
-
-## 如果对你有用
-
-如果对坐帮你把一本书真正读完了，或在卡住时把你接住了，考虑给仓库点一个 star。
-
-If this skill is useful to you, consider starring the repository.
-
----
 
 *对坐不替你读，只陪你读到最后。*
