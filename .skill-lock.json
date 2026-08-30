@@ -1,0 +1,10 @@
+{
+  "duizuo_reading_companion": {
+    "source": "locoda/duizuo-reading-companion-skill",
+    "ref": "main",
+    "skillPath": ".",
+    "skillFolderHash": "3d26f10ab8b7e967afd855bb0ab13bb9ef31cfb7",
+    "version": "0.6.0",
+    "installed_at": "2026-08-30T23:05:00Z"
+  }
+}
