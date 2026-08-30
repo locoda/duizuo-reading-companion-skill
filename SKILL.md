@@ -1,8 +1,12 @@
 ---
 name: duizuo-reading-companion
+version: "0.6.0"
 description: "Stateful, spoiler-safe reading companionship for novels, short-story and essay collections, mixed anthologies, and nonfiction. Use when the reader is preparing to read, reading, stuck, reacting, interpreting, evaluating, or debriefing a book. It remembers edition, medium, status, and content-appropriate progress; verifies text claims; adapts each turn to plot, emotion, aesthetics, interpretation, evaluation, or simple companionship without storing the conversation mode."
+source:
+  repository: "locoda/duizuo-reading-companion-skill"
+  ref: "main"
+  provenance: "frontmatter-tracked per gh skill spec, travels with SKILL.md"
 ---
-
 # 对坐（Duizuo Reading Companion）
 
 ## Purpose
