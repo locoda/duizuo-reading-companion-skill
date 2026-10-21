@@ -1,6 +1,6 @@
 ---
 name: duizuo-reading-companion
-version: "0.7.0"
+version: "0.7.1"
 description: "对坐 Duizuo：有状态、防剧透的阅读陪伴。TRIGGER：用户开始聊一本书——'来看这本了'、'开始看X了'、'读到第X章'、'这本书…'、'陪我聊聊这本书'、上传EPUB、问读到一半的书的情节/人物/主题、读完想复盘。记得版本、媒介和与内容匹配的进度；核查文本说法；默认不剧透未读部分。Use when the user starts discussing a book they're reading, stuck on, or finished; remembers edition, medium, progress; verifies claims against text; never spoils unread parts."
 source:
   repository: "locoda/duizuo-reading-companion-skill"
@@ -120,3 +120,7 @@ source:
 | 回归验证 | `references/test-cases.md` |
 
 **诚实声明**：EPUB 直接定位/提取只在宿主真实实现 locator 契约时可用；否则文本核查走"用户贴片段 + 范围安全的二手来源"降级路径，不要假装读了原文。
+
+## 随附脚本披露
+
+`bin/` 里有两个可选脚本。`check_environment.py` 只读本地环境信息，不联网。`check_updates.py` 仅在被调用时查询本 skill 有没有新版本：它会用你现有的 GitHub 登录凭据（`GITHUB_TOKEN` / `GH_TOKEN` 环境变量，或 `gh auth token`）向 GitHub API 查询源仓库的最新提交；没有凭据时退化为公开的 `git ls-remote` 查询。它不发送其他数据，也不做与更新检查无关的网络请求。
