@@ -12,7 +12,6 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="duizuo environment check")
     parser.add_argument("--skill-root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--json", action="store_true")
-    parser.add_argument("--check-updates", action="store_true", help="also run 24h throttled update checker (non-blocking)")
     args = parser.parse_args()
     checks: list[dict[str, Any]] = []
     errors: list[str] = []
@@ -29,27 +28,7 @@ def main() -> int:
         p = args.skill_root / ref
         record(ref, p.is_file(), "exists" if p.is_file() else "missing")
 
-    update_info = None
-    if args.check_updates:
-        try:
-            import subprocess as _sp
-            import sys as _sys_check
-            checker = args.skill_root / "bin" / "check_updates.py"
-            if checker.exists():
-                proc = _sp.run([_sys_check.executable, str(checker), "--json"], capture_output=True, text=True, timeout=12)
-                if proc.returncode == 0 and proc.stdout.strip():
-                    import json as _json
-                    update_info = _json.loads(proc.stdout.strip())
-                    if isinstance(update_info, dict) and update_info.get("update_available"):
-                        record("update-available", True, f"{update_info.get('repo')} {update_info.get('remote_sha')} newer than {update_info.get('local_sha')} — run gh skill update duizuo-reading-companion")
-                    else:
-                        record("update-available", True, f"up to date {update_info.get('local_sha') if isinstance(update_info, dict) else 'ok'}")
-        except Exception as _e:
-            record("update-available", True, f"update check skipped: {_e}")
-
     report = {"ok": not errors, "checks": checks, "errors": errors}
-    if update_info is not None:
-        report["update"] = update_info
     if args.json:
         print(json.dumps(report, indent=2, ensure_ascii=False))
     else:
