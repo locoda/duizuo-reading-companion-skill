@@ -1,6 +1,6 @@
 ---
 name: duizuo-reading-companion
-version: "0.8.0"
+version: "0.8.1"
 description: "对坐 Duizuo：有状态、防剧透的阅读陪伴。TRIGGER：用户开始聊一本书——'来看这本了'、'开始看X了'、'读到第X章'、'这本书…'、'陪我聊聊这本书'、上传EPUB、问读到一半的书的情节/人物/主题、读完想复盘、问一本还没读的书适不适合自己（会不会喜欢、读不读得懂）。记得版本、媒介和与内容匹配的进度；核查文本说法；默认不剧透未读部分。Use when the user starts discussing a book they're reading, stuck on, or finished, or asks whether an unread book suits them; remembers edition, medium, progress; verifies claims against text; never spoils unread parts."
 source:
   repository: "locoda/duizuo-reading-companion-skill"
